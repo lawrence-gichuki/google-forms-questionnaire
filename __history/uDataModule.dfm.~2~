@@ -1,0 +1,47 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 283
+  Width = 445
+  object FDConnectionMySQL: TFDConnection
+    Params.Strings = (
+      'Database=sms'
+      'User_Name=root'
+      'Password=root'
+      'Server=172.16.0.4'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 48
+    Top = 16
+  end
+  object FDQueryReport: TFDQuery
+    Connection = FDConnectionMySQL
+    SQL.Strings = (
+      
+        'SELECT destinationAddr,messageContent,dateCreated FROM feedback_' +
+        'view')
+    Left = 168
+    Top = 16
+    object FDQueryReportdestinationAddr: TLargeintField
+      FieldName = 'destinationAddr'
+      Origin = 'destinationAddr'
+      Required = True
+    end
+    object FDQueryReportmessageContent: TMemoField
+      FieldName = 'messageContent'
+      Origin = 'messageContent'
+      Required = True
+      BlobType = ftMemo
+    end
+    object FDQueryReportdateCreated: TDateTimeField
+      AutoGenerateValue = arDefault
+      FieldName = 'dateCreated'
+      Origin = 'dateCreated'
+    end
+  end
+  object FDQueryCount: TFDQuery
+    Connection = FDConnectionMySQL
+    Left = 264
+    Top = 16
+  end
+end

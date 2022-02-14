@@ -1,0 +1,17 @@
+program QuestionnairesReport;
+
+uses
+  Vcl.Forms,
+  uReport in 'uReport.pas' {frmQuestionnaires},
+  Vcl.Themes,
+  Vcl.Styles;
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Windows10 Purple');
+  Application.CreateForm(TfrmQuestionnaires, frmQuestionnaires);
+  Application.Run;
+end.

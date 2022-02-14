@@ -1,0 +1,14 @@
+program QuestionnairesReport;
+
+uses
+  Vcl.Forms,
+  uReport in 'uReport.pas' {frmQuestionnaires};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmQuestionnaires, frmQuestionnaires);
+  Application.Run;
+end.
